@@ -1,9 +1,15 @@
-# W
-WIN_WIDTH = 500
-WIN_HEIGHT = 800
-
 # C
 COLOR_BLUE = (0, 128, 155)
 COLOR_RED = (255, 0, 0)
 COLOR_BLACK = (0, 0, 0)
-COLOR_WHITE = (255,255,255,)
+COLOR_WHITE = (255,255,255)
+
+# M
+MENU_OPTION = ('NEW PLAYER',
+               'SCORE',
+               'EXIT')
+
+# W
+WIN_WIDTH = 500
+WIN_HEIGHT = 800
+

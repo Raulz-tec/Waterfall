@@ -4,7 +4,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.const import WIN_WIDTH
+from code.const import WIN_WIDTH, COLOR_RED, COLOR_BLACK, COLOR_BLUE, MENU_OPTION, COLOR_WHITE
 
 
 class Menu:
@@ -18,9 +18,13 @@ class Menu:
         pygame.mixer_music.play(-1)
         while True:
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, "Woodpecker",(255, 0, 0), ((WIN_WIDTH / 2), 65))
-            self.menu_text(50, "In", (0, 0, 0), ((WIN_WIDTH / 2), 140))
-            self.menu_text(50, "Waterfall", (0, 128, 155), ((WIN_WIDTH / 2), 220))
+            self.menu_text(50, "Woodpecker", COLOR_RED, ((WIN_WIDTH / 2), 65))
+            self.menu_text(50, "In", COLOR_BLACK, ((WIN_WIDTH / 2), 140))
+            self.menu_text(50, "Waterfall", COLOR_BLUE, ((WIN_WIDTH / 2), 220))
+
+            for i in range(len(MENU_OPTION)):
+                self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, ((WIN_WIDTH / 2), 600 + 25 * i))
+
             pygame.display.flip()
 
             # check for all events
@@ -30,7 +34,7 @@ class Menu:
                     quit()  # End pygame
 
     def menu_text(self, text_size: int, text: str, text_color: tuple, text_center_pos: tuple):
-            text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
-            text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
-            text_rect: Rect = text_surf.get_rect(center=text_center_pos)
-            self.window.blit(source=text_surf, dest=text_rect)
+        text_font: Font = pygame.font.SysFont(name="Lucida Sans Typewriter", size=text_size)
+        text_surf: Surface = text_font.render(text, True, text_color).convert_alpha()
+        text_rect: Rect = text_surf.get_rect(center=text_center_pos)
+        self.window.blit(source=text_surf, dest=text_rect)
